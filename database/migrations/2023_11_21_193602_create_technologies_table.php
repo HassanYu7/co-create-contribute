@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contributions', function (Blueprint $table) {
+        Schema::create('technologies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('requested_contribution_id')->constrained()->onDelete('cascade');
-            $table->foreignId('contributor_id')->references('id')->on('users')->onDelete('cascade'); 
-            $table->string('contribution_description');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contributions');
+        Schema::dropIfExists('technologies');
     }
 };
