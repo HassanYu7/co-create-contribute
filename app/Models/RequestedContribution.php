@@ -22,5 +22,12 @@ class RequestedContribution extends Model
     public function contributions(){
         return $this->hasMany(Contribution::class, 'requested_contribution_id');
     }
+
+    //! I'm not sure if this relationship is right
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
   
 }

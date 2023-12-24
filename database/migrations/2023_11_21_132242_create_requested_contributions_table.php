@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->string('role');
-            $table->text('description');
+            // $table->foreignId('role_id')->nullable()->references('id')->on('roles')->constrained()->onDelete('cascade'); 
+            // $table->foreignId('role_id')->nullable()->constrained()->onDelete('cascade');
+
+            $table->text('description')->nullable();;
             $table->timestamps();
         });
     }
@@ -27,5 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('requested_contributions');
+      
     }
 };
