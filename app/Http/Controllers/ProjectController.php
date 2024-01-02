@@ -42,18 +42,19 @@ class ProjectController extends Controller
             'title' => 'required',
             'description' => 'required',
             'github_link' => 'required',
-            'technologies' => 'required|array',
-            'technologies.*' => 'exists:technologies,id', // Ensure all technology IDs exist
+            // 'contributors' => 'required|array',
+            'contributions_description' => 'required',
+            // 'technologies' => 'required|array',
+            // 'technologies.*' => 'exists:technologies,id', // Ensure all technology IDs exist
 
         ]);
 
         // Update main project details
         $project->update($data);
+        $project->requested_contributions()->attach($data['contributors']);
 
-        $project->technologies()->sync($data['technologies']);
+        // $project->technologies()->sync($data['technologies']);
 
-
-      
 
         return redirect()->back()->with('success', 'Project updated successfully!');
     }

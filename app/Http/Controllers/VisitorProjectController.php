@@ -10,7 +10,7 @@ class VisitorProjectController extends Controller
 
 
     public function index(){
-        $projects = Project::all();
+        $projects = Project::all()->sortByDesc('created_at');
         return view('visitors.projects.index', compact('projects'));
     }
     
