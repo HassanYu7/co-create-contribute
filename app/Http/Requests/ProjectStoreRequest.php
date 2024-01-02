@@ -23,10 +23,12 @@ class ProjectStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required',
+            'project_description' => 'required',
             'github_link' => 'required',
             'technologies' => 'required|array',
             'contributors' => 'required|array',
+            'contributions_description' => 'required',
+            
         ];
     }
 }

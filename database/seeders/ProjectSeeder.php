@@ -12,20 +12,23 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        $projects = [];
+        // $projects = [];
 
-        for ($i = 1; $i <= 30; $i++){
-            $projects[] = [
-                'user_id' => 1, 
-                'title' => 'Project ' . $i,
-                'description' => 'Description for Project ' . $i,
-                'github_link' => 'https://github.com/project' . $i,
-            ];
-        }
+        // for ($i = 1; $i <= 30; $i++){
+        //     $projects[] = [
+        //         'user_id' => 1, 
+        //         'title' => 'Project ' . $i,
+        //         'description' => 'Description for Project ' . $i,
+        //         'github_link' => 'https://github.com/project' . $i,
+        //     ];
+        // }
 
-        foreach($projects as $projectData){
-            Project::create($projectData);
-        }
+        // foreach($projects as $projectData){
+        //     Project::create($projectData);
+        // }
+
+        Project::factory()->count(15)->create();
+
      
     }
 }
